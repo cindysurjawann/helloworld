@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-import Typed from 'react-typed'
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -68,12 +67,7 @@ function Input({onSuccess}) {
   return (
     <div>
       <h1 className='w-full text-3xl font-bold text-red-700 uppercase md:text-4xl'>Bank Sinarmas - PUSILKOM</h1>
-      <Typed
-        strings={['by Cindy Surjawan']}
-        typeSpeed={120}
-        backSpeed={140}
-        loop
-      />
+    
       {error && <p className='text-red-600'>error: {error.toString()}</p>}
       {data && <p className='text-green-500'>success: {data}</p>}
       <form className='p-4' onSubmit={handleSubmit}>
