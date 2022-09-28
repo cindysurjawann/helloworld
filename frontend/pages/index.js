@@ -40,7 +40,7 @@ export default function Home() {
 function Input({onSuccess}) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-
+  console.log(process.env.NEXT_PUBLIC_BACKEND_URL)
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
