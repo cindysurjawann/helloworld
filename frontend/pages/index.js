@@ -64,7 +64,7 @@ function Input({onSuccess}) {
 
   return (
     <div>
-      <h1 className='w-full text-3xl font-bold text-red-700 uppercase md:text-4xl'>Bank Sinarmas - PUSILKOM</h1>
+      <h1 className='w-full text-3xl font-bold text-red-700 uppercase md:text-4xl'>Bank Sinarmas - PUSILKOM UI</h1>
       <h3 className='text-red-700 uppercase'>By Cindy Surjawan</h3>
     
       {error && <p className='text-red-600'>error: {error.toString()}</p>}
