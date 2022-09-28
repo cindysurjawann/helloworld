@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import Typed from 'react-typed'
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -19,8 +20,8 @@ export default function Home() {
   }
 
   return (
-    <div>
-		{error && <div>Failed to load {error.toString()}</div>}
+    <div className='p-4'>
+		{error && <div className='text-red-600'>Failed to load {error.toString()}</div>}
       {
         !data ? <div>Loading...</div>
           : (
@@ -29,7 +30,9 @@ export default function Home() {
       }
       <Input onSuccess={getData} />
       {data?.data ? data.data.map((item, index) => (
-        <p key={index}>{item}</p>
+        <ul>
+        <li className='p-4 border-b border-gray-600'><p key={index}>{item}</p></li> 
+        </ul>
       )) :
         <p>data kosong</p>
       }
@@ -64,11 +67,18 @@ function Input({onSuccess}) {
 
   return (
     <div>
-      {error && <p>error: {error.toString()}</p>}
-      {data && <p>success: {data}</p>}
-      <form onSubmit={handleSubmit}>
-        <input name="data" type="text" />
-        <button >Submit</button>
+      <h1 className='w-full text-3xl font-bold text-red-700 uppercase md:text-4xl'>Bank Sinarmas - PUSILKOM</h1>
+      <Typed
+        strings={['by Cindy Surjawan']}
+        typeSpeed={120}
+        backSpeed={140}
+        loop
+      />
+      {error && <p className='text-red-600'>error: {error.toString()}</p>}
+      {data && <p className='text-green-500'>success: {data}</p>}
+      <form className='p-4' onSubmit={handleSubmit}>
+        <input name="data" type="text" className='text-black px-4 rounded-md' />
+        <button className='px-4 w-[100px] rounded-md font-medium my-6 mx-auto bg-red-700'>Submit</button>
       </form>
     </div>
   )
