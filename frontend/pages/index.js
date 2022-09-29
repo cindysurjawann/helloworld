@@ -28,11 +28,19 @@ export default function Home() {
           )
       }
       <Input onSuccess={getData} />
-      {data?.data ? data.data.map((item, index) => (
+      {/* {data?.data ? data.data.map((item, index) => (
         <p className='p-4 border-b border-gray-600' key={index}>{item}</p>
       )) :
         <p>data kosong</p>
-      }
+      } */}
+      
+      {data?.data && data?.data?.map((item, index) => (
+      <div key={index} className='p-4 border-b border-gray-600'>
+        <span className="md: text-xl">ID: {item.ID} <br/> TASK: {item.task}</span>
+        <input type="checkbox" defaultChecked={item.task} />
+      </div>
+      )) 
+    }
     </div>
   )
 }
@@ -45,7 +53,7 @@ function Input({onSuccess}) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const body = {
-      text: formData.get("data")
+      task: formData.get("data")
     }
 
     try {
